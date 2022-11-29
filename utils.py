@@ -7,23 +7,28 @@ def load_candidates():
 
 
 def get_all(candidates):
+    result = ''
     for candidate in candidates:
-        print(candidate['name'])
-        print(candidate['position'])
-        print(candidate['skills'])
-        print()
+        result += f'Имя кандидата - {candidate["name"]}<br>'
+        result += f'{candidate["position"]}<br>'
+        result += f'{candidate["skills"]}<br><br>'
+    return result
 
 
 def get_by_pk(pk, candidates):
     for candidate in candidates:
         if candidate['pk'] == pk:
-            return candidate
+            return (f'Имя кандидата - {candidate["name"]}<br>'
+                    f'{candidate["position"]}<br>'
+                    f'{candidate["skills"]}<br>')
     return
 
 
-def get_by_skill(skill_name, candidates):
-    result = []
+def get_by_skill(skill, candidates):
+    result = ''
     for candidate in candidates:
-        if skill_name.lower() in candidate.lower().split(', '):
-            result.append(candidate)
+        if skill.lower() in candidate['skills'].lower().split(', '):
+            result += (f'Имя кандидата - {candidate["name"]}<br>'
+                       f'{candidate["position"]}<br>'
+                       f'{candidate["skills"]}<br><br>')
     return result
