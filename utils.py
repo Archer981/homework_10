@@ -18,7 +18,8 @@ def get_all(candidates):
 def get_by_pk(pk, candidates):
     for candidate in candidates:
         if candidate['pk'] == pk:
-            return (f'Имя кандидата - {candidate["name"]}<br>'
+            return (f'<img src="{candidate["picture"]}"><br><br>'
+                    f'Имя кандидата - {candidate["name"]}<br>'
                     f'{candidate["position"]}<br>'
                     f'{candidate["skills"]}<br>')
     return
